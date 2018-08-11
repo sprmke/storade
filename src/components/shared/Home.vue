@@ -1,3 +1,9 @@
 <template>
-    <h1>The Component component</h1>
+    <h1>The Home component</h1>
 </template>
+
+<script>
+    export default {
+        
+    }
+</script>
