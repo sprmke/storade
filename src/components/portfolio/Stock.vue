@@ -11,7 +11,7 @@
                 </h5>
                 <div class="card-form">
                     <input type="number" class="form-control" placeholder="Quantity" v-model="quantity">
-                    <button class="btn btn-primary" @click="buyStock" :disabled="quantity <= 0">Sell</button>
+                    <button class="btn btn-primary" @click="sellStock" :disabled="quantity <= 0">Sell</button>
                 </div>
             </div>
         </div>
@@ -29,17 +29,21 @@
             }
         },
         methods: {
-             ...mapActions([
-                'sellStock'
-            ]),
+             ...mapActions({
+                 placeSellOrder: 'sellStock'
+             }),
             sellStock() {
                 const order = {
                     stockId: this.stock.id,
                     stockPrice: this.stock.price,
                     quantity: this.quantity
                 };
-                this.sellStock();
+                this.placeSellOrder(order);
+                this.quantity = 0;
             }
+        },
+        created() {
+            console.log(this.stock);
         }
     }
 </script>
