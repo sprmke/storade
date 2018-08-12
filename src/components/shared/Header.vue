@@ -34,26 +34,34 @@
     .navbar {
         border: none;
         border-radius: 0;
-        background: #dce1e6;
+        background: transparent;
 
-        .navbar-brand {
-            background: #998dff;
-            color: #fbfaff;
-        }
-        .navbar-nav {
-            a {
+        .container {
+            border-bottom: 1px solid #dcdfec;
+            box-shadow: 0 2px 3px -1px #e3e6ef;
+
+            .navbar-brand {
+                color: #3e90f9;
                 font-weight: bold;
-                color: #9599a9;
+                text-transform: uppercase;
+                font-style: oblique;
+                border-bottom: 2px solid #8ebfff;
+            }
+            .navbar-nav {
+                a {
+                    font-weight: bold;
+                    color: #9599a9;
 
-                &:hover {
-                    color: #72778d;
+                    &:hover {
+                        color: #72778d;
+                    }
                 }
+                .active a {
+                    color: #454a5d;
+                    background: transparent;
+                }
+                
             }
-            .active a {
-                color: #454a5d;
-                background: transparent;
-            }
-            
         }
     }
 </style>
