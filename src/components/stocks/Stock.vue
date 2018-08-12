@@ -9,8 +9,8 @@
                     <span class="stock-price"><small>Price: </small>{{ stock.price }}</span>
                 </h5>
                 <div class="card-form">
-                    <input type="number" class="form-control" placeholder="">
-                    <button class="btn btn-success">Buy</button>
+                    <input type="number" class="form-control" placeholder="Quantity" v-model="quantity">
+                    <button class="btn btn-primary" @click="buyStock" :disabled="quantity <= 0">Buy</button>
                 </div>
             </div>
         </div>
@@ -19,7 +19,23 @@
 
 <script>
     export default {
-        props: ['stock']
+        props: ['stock'],
+        data() {
+            return {
+                quantity: 0
+            }
+        },
+        methods: {
+            buyStock() {
+                const order = {
+                    stockId: this.stock.id,
+                    stockPrice: this.stock.price,
+                    quantity: this.quantity
+                };
+                console.log(order);
+                this.quantity = 0;
+            }
+        }
     }
 </script>
 

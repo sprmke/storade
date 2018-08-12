@@ -38,10 +38,14 @@
         }
 
         button.btn {
+            outline: none;
+            box-shadow: none;
             border: none;
             background: #998eff;
 
-            &:hover {
+            &:hover,
+            &:focus,
+            &:active {
                 background: darken(#998eff, 10%);
             }
         }
