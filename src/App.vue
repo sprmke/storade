@@ -1,11 +1,18 @@
 <template>
-    <div class="container">
-        <app-header></app-header>
-        <div class="row">
-            <div class="col-md-12">
-                <router-view></router-view>
+    <div>
+        <header>
+            <app-header></app-header>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row mt-content">
+                    <div class="col-md-12">
+                        <router-view></router-view>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
 </template>
 
@@ -19,6 +26,21 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+    body {
+        background: #f1f2f6;
 
+        .mt-content {
+            margin-top: 5rem;
+        }
+
+        button.btn {
+            border: none;
+            background: #998eff;
+
+            &:hover {
+                background: darken(#998eff, 10%);
+            }
+        }
+    }
 </style>
