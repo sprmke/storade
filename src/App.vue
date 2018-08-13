@@ -84,11 +84,30 @@
                         color: #666;
                     }
                 }
+                .card-details {
+                    display: flex;
+                    flex-flow: column wrap;
+                    margin-bottom: 1.5rem;
+
+                    span {
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                        color: #666;
+
+                        small {
+                            font-weight: normal;
+                        }
+                    }
+                }
                 .card-form {
                     display: flex;
 
                     input {
                         border-radius: 6px 0 0 6px;
+
+                        &.danger {
+                            border: 1px solid red;
+                        }
                     }
                     button {
                         border-radius: 0 6px 6px 0;

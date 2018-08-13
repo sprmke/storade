@@ -5,13 +5,14 @@
             <div class="card-body">
                 <h5 class="card-title">
                     {{ stock.name }}
-
+                </h5>
+                <p class="card-details">
                     <span class="stock-price"><small>Quantity: </small>{{ stock.quantity }}</span>
                     <span class="stock-price"><small>Price: </small>{{ stock.price }}</span>
-                </h5>
+                </p>
                 <div class="card-form">
-                    <input type="number" class="form-control" placeholder="Quantity" v-model="quantity">
-                    <button class="btn btn-primary" @click="sellStock" :disabled="quantity <= 0">Sell</button>
+                    <input type="number" class="form-control" :class="{'danger': insufficientQuantity}" placeholder="Quantity" v-model="quantity">
+                    <button class="btn btn-primary" @click="sellStock" :disabled="insufficientQuantity || quantity <= 0">Sell</button>
                 </div>
             </div>
         </div>
@@ -26,6 +27,14 @@
         data() {
             return {
                 quantity: 0
+            }
+        },
+        computed: {
+            funds() {
+                return this.$store.getters.funds;
+            },
+            insufficientQuantity() {
+                return this.quantity > this.stock.quantity;
             }
         },
         methods: {
@@ -58,7 +67,13 @@
         &:hover,
         &:focus,
         &:active {
-            background: darken(#ffad7a, 10%);
+            background: darken(#ff8e47, 10%);
+        }
+    }
+    input {
+        &:focus {
+            box-shadow: none;
+            border: 1px solid #ff8e47;
         }
     }
 </style>

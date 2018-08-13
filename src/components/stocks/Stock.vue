@@ -9,8 +9,8 @@
                     <span class="stock-price"><small>Price: </small>{{ stock.price }}</span>
                 </h5>
                 <div class="card-form">
-                    <input type="number" class="form-control" placeholder="Quantity" v-model="quantity">
-                    <button class="btn btn-primary" @click="buyStock" :disabled="quantity <= 0">Buy</button>
+                    <input type="number" class="form-control" :class="{'danger': insufficientFunds}" placeholder="Quantity" v-model="quantity">
+                    <button class="btn btn-primary" @click="buyStock" :disabled="insufficientFunds || quantity <= 0">Buy</button>
                 </div>
             </div>
         </div>
@@ -23,6 +23,14 @@
         data() {
             return {
                 quantity: 0
+            }
+        },
+        computed: {
+            funds() {
+                return this.$store.getters.funds;
+            },
+            insufficientFunds() {
+                return this.quantity * this.stock.price > this.funds;
             }
         },
         methods: {
@@ -49,7 +57,13 @@
         &:hover,
         &:focus,
         &:active {
-            background: darken(#998eff, 10%);
+            background: darken(#5ed468, 10%);
+        }
+    }
+    input {
+        &:focus {
+            box-shadow: none;
+            border: 1px solid #19bd5c;
         }
     }
 </style>

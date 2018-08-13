@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>One of the largest stock trader market.</h1>
-        <h4>Your funds: {{ funds }}</h4>
+        <h1>Largest stock trader on the market.</h1>
+        <h3>Your funds: {{ funds }}</h3>
     </div>
 </template>
 
