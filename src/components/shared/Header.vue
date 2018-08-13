@@ -24,7 +24,7 @@
                                 <li><a href="">Load Data</a></li>
                             </ul>
                     </li>
-                    <li><a href="">Funds: {{ funds }}</a></li>
+                    <li><a href="">Funds: {{ funds | currency }}</a></li>
                 </ul>
             </div>
         </div>
