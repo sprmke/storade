@@ -24,11 +24,22 @@
                                 <li><a href="">Load Data</a></li>
                             </ul>
                     </li>
+                    <li><a href="">Funds: {{ funds }}</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </template>
+
+<script>
+    export default {
+        computed: {
+            funds() {
+                return this.$store.getters.funds;
+            }
+        }
+    }
+</script>
 
 <style lang="scss" scoped>
     .navbar {
